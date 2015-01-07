@@ -144,13 +144,13 @@ return “{$this­>region}” .
 
 $Alligator1 = new Alligator();
 
-$Alligator1­>firstName = “BooBoo”;
+$Alligator1­>region = “swamps, ”;
 
-$Alligator1­>lastName = “Iwao”;
+$Alligator1­>country = “America”;
 
-print “The dog’s name is {$dog1­>getName()}.”;
+print “The locationn of the alligator is {$Alligator1­>getLocation()}.”;
 
-//The dog’s name is BooBoo Iwao.
+//The location of the Alligator is swamps, america
 
 
 
@@ -166,51 +166,49 @@ protected $totalpopulation = number;
 
 function getLocation() {
 
-return “{$this­>firstName}” .
+return “{$this­>region}” .
 
-“{$this­>lastName}”;
-
-}
+“{$this­>country}”;
 
 }
 
-$dog1 = new Dog();
+}
 
-$dog1­>firstName = “BooBoo”;
+$Crocodile1 = new Crocodile();
 
-$dog1­>lastName = “Iwao”;
+$Crocodile1­>region = “rivers, ”;
 
-print “The dog’s name is {$dog1­>getName()}.”;
+$Crocodile1­>country = “Egypt”;
+print “The locationn of the Crocodile is {$Crocodile1­>getLocation()}.”;
 
-//The dog’s name is BooBoo Iwao.
+//The location of the Crocodile is rivers, Egypt
 
 
 class Caiman {
 
-private $firstName = “default name”;
+private $region = “region where found”;
 
-private $lastName = “default last name”;
+private $country = “country where found”;
 
 private $gender = “male”;
 
 private $totalpopulation = number;
 
-function getName() {
+function getLocation() {
 
-return “{$this­>firstName}” .
+return “{$this­>region}” .
 
-“{$this­>lastName}”;
-
-}
+“{$this­>country}”;
 
 }
 
-$dog1 = new Dog();
+}
 
-$dog1­>firstName = “BooBoo”;
+$Caiman1 = new Caiman();
 
-$dog1­>lastName = “Iwao”;
+$Caiman1­>region = “lakes, ”;
 
-print “The dog’s name is {$dog1­>getName()}.”;
+$Caiman1­>country = “South America”;
+print “The locationn of the Caiman is {$Crocodile1­>getLocation()}.”;
 
-//The dog’s name is BooBoo Iwao.
+//The location of the Caiman is lakes, South America
