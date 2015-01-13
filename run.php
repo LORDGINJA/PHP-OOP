@@ -5,9 +5,9 @@
 	else  
 		echo 'This is not a double value.<br>';  
 		echo '<br>';  
-		var_dump(is_double(85));  
+		var_dump(is_double(11));  
 		echo '<br>';  
-		var_dump(is_double(1e8));  
+		var_dump(is_double(1e0));  
 		echo '<br>';  
 		var_dump(is_double(true));  
 		echo '<br>';  
