@@ -5,17 +5,13 @@
 		public $generalHair;
 		public $athleticAbilities;
 		public $academicAbilities;
-		public $noiseLevel;
-		public $scaryness;
-
-		function __construct($color, $generalHeight, $generalHair, $athleticAbilities, $academicAbilities, $noiseLevel, $scaryness) {
+	
+		function __construct($color, $generalHeight, $generalHair, $athleticAbilities, $academicAbilities) {
 			$this->color = $color;
 			$this->generalHeight = $generalHeight;
 			$this->generalHair = $generalHair;
 			$this->athleticAbilities = $athleticAbilities;
 			$this->academicAbilities = $academicAbilities;
-			$this->noiseLevel = $noiseLevel;
-			$this->scaryness = $scaryness;
 		}
 
 		function getWorthiness() {
@@ -27,66 +23,78 @@
 	}
 
 	class White extends Race {
+		function __construct($color, $generalHeight, $generalHair, $athleticAbilities, $academicAbilities, $english) {
+			parent::__construct($color, $generalHeight, $generalHair, $athleticAbilities, $academicAbilities);
+			$this->english = $english;
+		}
 		function speak() {
-			return $this->noiseLevel;
+			return $this->english;
 		}
 	}
 
 	class Asian extends Race {
-		function scream() {
-			return $this->noiseLevel;
+		function __construct($color, $generalHeight, $generalHair, $athleticAbilities, $academicAbilities, $chinese) {
+			parent::__construct($color, $generalHeight, $generalHair, $athleticAbilities, $academicAbilities);
+			$this->chinese = $chinese;
+		}
+		function language() {
+			return $this->chinese;
 		}
 	}
 
-	$white = new White("white", "tall", "blond", "average", "average", "average", "not");
+	$white = new White("white", "tall", "blond", "average", "average", "english", "chinese");
 	print "White people " . $white->getWorthiness();
-
+	print "They speak " . $white->speak();
 
 
 
 
 
 	class Plant {
-		public $benefits;
+		public $flowers;
 		public $species;
 		public $scientificName;
 		public $gender;
 		public $height;
-		public $flowers;
-		public $color;
 
-		function __construct($benefits, $species, $scientificName, $gender, $height, $flowers, $color) {
-			$this->benefits = $benefits;
+		function __construct($flowers, $species, $scientificName, $gender, $height) {
+			$this->flowers = $flowers;
 			$this->species = $species;
 			$this->scientificName = $scientificName;
 			$this->gender = $gender;
 			$this->height = $height;
-			$this->flowers = $flowers;
-			$this->color = $color;
 		}
 
 		function getPlant() {
 			return "is an " . $this->species . 
-			" and " . $this->benefits . ". ";
+			" and " . $this->flowers . ". ";
 		}
 
 	}
 
 	class Oak extends Plant {
-		function shade() {
-			return $this->benefits;
+		function __construct($benefits, $species, $scientificName, $gender, $height, $shade) {
+			parent::__construct($benefits, $species, $scientificName, $gender, $height);
+			$this->shade = $shade;
+		}
+		function Shade() {
+			return $this->shade;
 		}
 	}
 
 	class Rose extends Plant {
-		function cut() {
-			return $this->benefits;
+		function __construct($benefits, $species, $scientificName, $gender, $height, $cuts) {
+			parent::__construct($benefits, $species, $scientificName, $gender, $height);
+			$this->cuts = $cuts;
+		}
+		function Cut() {
+			return $this->cuts;
 		}
 	}
 
-	$oak = new Oak("Provides shade", "Oak", "oakus treeus", "male", "50ft", "no", "green and brown");
-	print "This plant " . $oak->getPlant();
-
+	$oak = new Oak("doesn't have flowers", "Oak", "oakus treeus", "male", "50ft", "provides shade", "cuts and scrapes");
+	print "<br>" . "This plant " . $oak->getPlant();
+	print "It " . $oak->Shade();
 
 
 
@@ -97,17 +105,13 @@
 		public $levelOfFun;
 		public $timeNecessary;
 		public $playersNecessary;
-		public $desiredLocation;
-		public $gearNecessary;
 
-		function __construct($category, $name, $levelOfFun, $timeNecessary, $playersNecessary, $desiredLocation, $gearNecessary) {
+		function __construct($category, $name, $levelOfFun, $timeNecessary, $playersNecessary) {
 			$this->category = $category;
 			$this->name = $name;
 			$this->levelOfFun = $levelOfFun;
 			$this->timeNecessary = $timeNecessary;
 			$this->playersNecessary = $playersNecessary;
-			$this->desiredLocation = $desiredLocation;
-			$this->gearNecessary = $gearNecessary;
 		}
 
 		function getGame() {
@@ -118,17 +122,26 @@
 	}
 
 	class Soccer extends Game {
-		function amountOfFun() {
-			return $this->levelOfFun;
+		function __construct($category, $name, $levelOfFun, $timeNecessary, $playersNecessary, $muscles) {
+			parent::__construct($category, $name, $levelOfFun, $timeNecessary, $playersNecessary);
+			$this->muscles = $muscles;
+		}
+		function needed() {
+			return $this->muscles;
 		}
 	}
 
 	class Chess extends Game {
-		function Funness() {
-			return $this->levelOfFun;
+		function __construct($category, $name, $levelOfFun, $timeNecessary, $playersNecessary, $brain) {
+			parent::__construct($category, $name, $levelOfFun, $timeNecessary, $playersNecessary);
+			$this->brain = $brain;
+		}
+		function Needed() {
+			return $this->brain;
 		}
 	}
 
-	$soccer = new Soccer("sport", "soccer", "very fun", "any amount of time", "at least two players", "grassy field", "ball");
-	print "This game" . $soccer->getGame();
+	$soccer = new Soccer("sport", "soccer", "very fun", "any amount of time", "at least two players", "muscles", "brain");
+	print "<br>" . "This game" . $soccer->getGame();
+	print ". It requires " . $soccer->needed();
 ?>
