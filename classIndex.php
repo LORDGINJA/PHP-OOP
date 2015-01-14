@@ -13,11 +13,11 @@
 		}
 
 		public function Name(){
-			return $this->firstName . $this->lastName;
+			return "My name is " . $this->firstName . $this->lastName;
 		}
 
 		public function Height(){
-			return $this->height;
+			return "I am " . $this->height;
 		}
 }
 		$person1 = new Person();
@@ -25,7 +25,7 @@
 		$person1->lastName = "Karp";
 		$person1->height = "5'11";
 
-		print "My name is " . $person1->Name() . ". " . "I am " . $person1->Height();
+		print $person1->Name() . ". " .  $person1->Height();
 	
 
 ?>
