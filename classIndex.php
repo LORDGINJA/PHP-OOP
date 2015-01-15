@@ -1,31 +1,27 @@
 <?php
-
-	class Person{
+	class Person {
 		public $firstName;
-		public $lastName; 
+		public $lastName;
 		public $height;
 	
 
-		public function __construct($firstName, $lastName, $height){
+		function __construct($firstName, $lastName, $height){
 			$this->firstName = $firstName;
 			$this->lastName = $lastName;
 			$this->height = $height;
 		}
 
-		public function Name(){
+		 function getName(){
 			return "My name is " . $this->firstName . $this->lastName;
 		}
 
-		public function Height(){
+		 function getHeight(){
 			return "I am " . $this->height;
 		}
 }
-		$person1 = new Person();
-		$person1->firstName = "Max ";
-		$person1->lastName = "Karp";
-		$person1->height = "5'11";
+		$person = new Person("Max ", "Karp", "5'11");
 
-		print $person1->Name() . ". " .  $person1->Height();
+		print $person->getName() . ". " .  $person->getHeight();
 	
 
 ?>
